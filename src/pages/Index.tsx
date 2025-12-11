@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon";
 import VideoModal from "@/components/VideoModal";
 import AuthModal from "@/components/AuthModal";
 import MobileMenu from "@/components/MobileMenu";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useState } from "react";
 
 const Index = () => {
@@ -113,7 +114,8 @@ const Index = () => {
             <a href="/docs" className="text-foreground/80 hover:text-primary transition-colors">Документация</a>
             <a href="#pricing" className="text-foreground/80 hover:text-primary transition-colors">Тарифы</a>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
+            <ThemeToggle />
             <Button 
               variant="ghost"
               className="hidden md:flex"
