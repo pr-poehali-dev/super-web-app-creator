@@ -65,6 +65,49 @@ const Builder = () => {
     setDroppedComponents([]);
   };
 
+  const loadTemplate = (templateType: string) => {
+    let templateComponents: DroppedComponent[] = [];
+    
+    switch (templateType) {
+      case "landing":
+        templateComponents = [
+          { id: "navbar-1", type: "Navbar", content: "Навигационное меню", icon: "Menu", position: 0 },
+          { id: "header-1", type: "Header", content: "Создайте Будущее Сегодня", icon: "Type", position: 1 },
+          { id: "text-1", type: "Text", content: "Революционная платформа для ваших идей", icon: "AlignLeft", position: 2 },
+          { id: "button-1", type: "Button", content: "Начать бесплатно", icon: "Square", position: 3 },
+          { id: "card-1", type: "Card", content: "Особенности продукта", icon: "SquareStack", position: 4 },
+          { id: "card-2", type: "Card", content: "Преимущества решения", icon: "SquareStack", position: 5 },
+          { id: "footer-1", type: "Footer", content: "© 2024 Все права защищены", icon: "PanelBottom", position: 6 },
+        ];
+        break;
+      
+      case "blog":
+        templateComponents = [
+          { id: "navbar-1", type: "Navbar", content: "Навигационное меню", icon: "Menu", position: 0 },
+          { id: "header-1", type: "Header", content: "Мой Блог", icon: "Type", position: 1 },
+          { id: "card-1", type: "Card", content: "Статья 1: Как начать карьеру в IT", icon: "SquareStack", position: 2 },
+          { id: "image-1", type: "Image", content: "Блок изображения", icon: "Image", position: 3 },
+          { id: "text-1", type: "Text", content: "Описание статьи и ключевые мысли", icon: "AlignLeft", position: 4 },
+          { id: "card-2", type: "Card", content: "Статья 2: Лучшие практики разработки", icon: "SquareStack", position: 5 },
+          { id: "footer-1", type: "Footer", content: "© 2024 Все права защищены", icon: "PanelBottom", position: 6 },
+        ];
+        break;
+      
+      case "dashboard":
+        templateComponents = [
+          { id: "navbar-1", type: "Navbar", content: "Панель управления", icon: "Menu", position: 0 },
+          { id: "header-1", type: "Header", content: "Дашборд", icon: "Type", position: 1 },
+          { id: "card-1", type: "Card", content: "Статистика продаж", icon: "SquareStack", position: 2 },
+          { id: "card-2", type: "Card", content: "Активные пользователи", icon: "SquareStack", position: 3 },
+          { id: "card-3", type: "Card", content: "График роста", icon: "SquareStack", position: 4 },
+          { id: "form-1", type: "Form", content: "Форма ввода", icon: "FileText", position: 5 },
+        ];
+        break;
+    }
+    
+    setDroppedComponents(templateComponents);
+  };
+
   const renderComponent = (component: DroppedComponent) => {
     switch (component.type) {
       case "Header":
@@ -224,18 +267,40 @@ const Builder = () => {
                 </TabsContent>
 
                 <TabsContent value="templates">
+                  <h3 className="font-orbitron text-sm font-bold mb-3 text-primary">Готовые шаблоны</h3>
                   <div className="space-y-2">
-                    <div className="p-3 rounded-lg bg-background border border-primary/30 cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
-                      <div className="font-medium text-sm mb-1">Landing Page</div>
+                    <div 
+                      onClick={() => loadTemplate("landing")}
+                      className="p-3 rounded-lg bg-background border border-primary/30 cursor-pointer hover:border-primary hover:bg-primary/10 transition-all group"
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="font-medium text-sm">Landing Page</div>
+                        <Icon name="Sparkles" size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
                       <div className="text-xs text-muted-foreground">Hero + Features + Footer</div>
+                      <Badge variant="outline" className="mt-2 text-xs border-primary/40">7 компонентов</Badge>
                     </div>
-                    <div className="p-3 rounded-lg bg-background border border-primary/30 cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
-                      <div className="font-medium text-sm mb-1">Blog Layout</div>
-                      <div className="text-xs text-muted-foreground">Header + Cards + Sidebar</div>
+                    <div 
+                      onClick={() => loadTemplate("blog")}
+                      className="p-3 rounded-lg bg-background border border-primary/30 cursor-pointer hover:border-primary hover:bg-primary/10 transition-all group"
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="font-medium text-sm">Blog Layout</div>
+                        <Icon name="Sparkles" size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <div className="text-xs text-muted-foreground">Header + Cards + Images</div>
+                      <Badge variant="outline" className="mt-2 text-xs border-primary/40">7 компонентов</Badge>
                     </div>
-                    <div className="p-3 rounded-lg bg-background border border-primary/30 cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
-                      <div className="font-medium text-sm mb-1">Dashboard</div>
+                    <div 
+                      onClick={() => loadTemplate("dashboard")}
+                      className="p-3 rounded-lg bg-background border border-primary/30 cursor-pointer hover:border-primary hover:bg-primary/10 transition-all group"
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="font-medium text-sm">Dashboard</div>
+                        <Icon name="Sparkles" size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
                       <div className="text-xs text-muted-foreground">Navbar + Stats + Charts</div>
+                      <Badge variant="outline" className="mt-2 text-xs border-primary/40">6 компонентов</Badge>
                     </div>
                   </div>
                 </TabsContent>
