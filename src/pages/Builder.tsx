@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SaveProjectModal from "@/components/SaveProjectModal";
 import ProjectsLibrary from "@/components/ProjectsLibrary";
+import CodeExportModal from "@/components/CodeExportModal";
 
 interface Component {
   id: string;
@@ -23,6 +24,7 @@ const Builder = () => {
   const [draggedComponent, setDraggedComponent] = useState<Component | null>(null);
   const [saveModalOpen, setSaveModalOpen] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
+  const [exportModalOpen, setExportModalOpen] = useState(false);
 
   const availableComponents: Component[] = [
     { id: "header", type: "Header", content: "Заголовок Hero", icon: "Type" },
@@ -313,7 +315,11 @@ const Builder = () => {
                         Компонентов на холсте: {droppedComponents.length}
                       </span>
                     </div>
-                    <Button size="sm" className="bg-primary/20 hover:bg-primary/30 border border-primary/40">
+                    <Button 
+                      size="sm" 
+                      className="bg-primary/20 hover:bg-primary/30 border border-primary/40"
+                      onClick={() => setExportModalOpen(true)}
+                    >
                       <Icon name="Code" size={14} className="mr-2" />
                       Экспорт кода
                     </Button>
@@ -328,6 +334,11 @@ const Builder = () => {
       <SaveProjectModal 
         open={saveModalOpen} 
         onOpenChange={setSaveModalOpen}
+        componentsCount={droppedComponents.length}
+      />
+      <CodeExportModal 
+        open={exportModalOpen} 
+        onOpenChange={setExportModalOpen}
         componentsCount={droppedComponents.length}
       />
     </div>

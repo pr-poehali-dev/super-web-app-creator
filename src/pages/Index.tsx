@@ -109,15 +109,24 @@ const Index = () => {
             <a href="#templates" className="text-foreground/80 hover:text-primary transition-colors">Шаблоны</a>
             <a href="/showcase" className="text-foreground/80 hover:text-primary transition-colors">Кейсы</a>
             <a href="/builder" className="text-foreground/80 hover:text-primary transition-colors">Конструктор</a>
+            <a href="/docs" className="text-foreground/80 hover:text-primary transition-colors">Документация</a>
             <a href="#pricing" className="text-foreground/80 hover:text-primary transition-colors">Тарифы</a>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button 
-            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 animate-glow"
-            onClick={() => setAuthOpen(true)}
-          >
-            Начать бесплатно
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button 
+              variant="ghost"
+              onClick={() => window.location.href = '/profile'}
+            >
+              <Icon name="User" className="mr-2" size={16} />
+              Профиль
+            </Button>
+            <Button 
+              className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 animate-glow"
+              onClick={() => setAuthOpen(true)}
+            >
+              Начать бесплатно
+            </Button>
+          </div>
         </div>
       </nav>
 
