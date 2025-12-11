@@ -103,6 +103,8 @@ const Index = () => {
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-foreground/80 hover:text-primary transition-colors">Возможности</a>
             <a href="#templates" className="text-foreground/80 hover:text-primary transition-colors">Шаблоны</a>
+            <a href="/showcase" className="text-foreground/80 hover:text-primary transition-colors">Кейсы</a>
+            <a href="/builder" className="text-foreground/80 hover:text-primary transition-colors">Конструктор</a>
             <a href="#pricing" className="text-foreground/80 hover:text-primary transition-colors">Тарифы</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
@@ -133,7 +135,11 @@ const Index = () => {
               200 готовых шаблонов, облачная инфраструктура и публикация в сторы за минуты.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 text-lg px-8 animate-glow">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 text-lg px-8 animate-glow"
+                onClick={() => window.location.href = '/builder'}
+              >
                 <Icon name="Rocket" className="mr-2" size={20} />
                 Начать создавать
               </Button>
@@ -141,6 +147,23 @@ const Index = () => {
                 <Icon name="Play" className="mr-2" size={20} />
                 Смотреть демо
               </Button>
+            </div>
+            
+            <div className="mt-10">
+              <div className="relative rounded-xl overflow-hidden border-2 border-primary/40 shadow-2xl hover-lift">
+                <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center relative group cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative z-10">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink flex items-center justify-center mb-4 animate-glow group-hover:scale-110 transition-transform">
+                      <Icon name="Play" size={40} className="text-white ml-1" />
+                    </div>
+                    <p className="text-lg font-orbitron font-bold">Смотреть видео-презентацию</p>
+                    <p className="text-sm text-muted-foreground mt-2">Узнайте всё о возможностях платформы за 2 минуты</p>
+                  </div>
+                  <div className="absolute inset-0 grid-pattern opacity-20"></div>
+                  <Badge className="absolute top-4 right-4 bg-secondary/80 text-white border-0">2:30</Badge>
+                </div>
+              </div>
             </div>
             <div className="mt-12 flex items-center justify-center gap-8 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
@@ -268,8 +291,13 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="border-primary/40 hover:bg-primary/10">
-              Показать все 200 шаблонов
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-primary/40 hover:bg-primary/10"
+              onClick={() => window.location.href = '/showcase'}
+            >
+              Посмотреть реальные кейсы
               <Icon name="ArrowRight" className="ml-2" size={20} />
             </Button>
           </div>
