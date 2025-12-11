@@ -2,10 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import VideoModal from "@/components/VideoModal";
+import AuthModal from "@/components/AuthModal";
 import { useState } from "react";
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [videoOpen, setVideoOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
 
   const features = [
     {
@@ -108,7 +112,10 @@ const Index = () => {
             <a href="#pricing" className="text-foreground/80 hover:text-primary transition-colors">Тарифы</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 animate-glow">
+          <Button 
+            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 animate-glow"
+            onClick={() => setAuthOpen(true)}
+          >
             Начать бесплатно
           </Button>
         </div>
@@ -143,15 +150,23 @@ const Index = () => {
                 <Icon name="Rocket" className="mr-2" size={20} />
                 Начать создавать
               </Button>
-              <Button size="lg" variant="outline" className="border-primary/40 hover:bg-primary/10 text-lg px-8">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-primary/40 hover:bg-primary/10 text-lg px-8"
+                onClick={() => setVideoOpen(true)}
+              >
                 <Icon name="Play" className="mr-2" size={20} />
                 Смотреть демо
               </Button>
             </div>
             
             <div className="mt-10">
-              <div className="relative rounded-xl overflow-hidden border-2 border-primary/40 shadow-2xl hover-lift">
-                <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center relative group cursor-pointer">
+              <div 
+                className="relative rounded-xl overflow-hidden border-2 border-primary/40 shadow-2xl hover-lift cursor-pointer"
+                onClick={() => setVideoOpen(true)}
+              >
+                <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <div className="relative z-10">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink flex items-center justify-center mb-4 animate-glow group-hover:scale-110 transition-transform">
@@ -450,6 +465,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <VideoModal open={videoOpen} onOpenChange={setVideoOpen} />
+      <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
     </div>
   );
 };

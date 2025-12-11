@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import SaveProjectModal from "@/components/SaveProjectModal";
+import ProjectsLibrary from "@/components/ProjectsLibrary";
 
 interface Component {
   id: string;
@@ -19,6 +21,8 @@ interface DroppedComponent extends Component {
 const Builder = () => {
   const [droppedComponents, setDroppedComponents] = useState<DroppedComponent[]>([]);
   const [draggedComponent, setDraggedComponent] = useState<Component | null>(null);
+  const [saveModalOpen, setSaveModalOpen] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
 
   const availableComponents: Component[] = [
     { id: "header", type: "Header", content: "Заголовок Hero", icon: "Type" },
@@ -144,7 +148,19 @@ const Builder = () => {
               <Icon name="ArrowLeft" className="mr-2" size={16} />
               Назад
             </Button>
-            <Button className="bg-gradient-to-r from-neon-purple to-neon-pink animate-glow">
+            <Button 
+              variant="outline" 
+              className="border-primary/40"
+              onClick={() => setShowProjects(!showProjects)}
+            >
+              <Icon name="FolderOpen" className="mr-2" size={16} />
+              {showProjects ? "Скрыть" : "Мои проекты"}
+            </Button>
+            <Button 
+              className="bg-gradient-to-r from-neon-purple to-neon-pink animate-glow"
+              onClick={() => setSaveModalOpen(true)}
+              disabled={droppedComponents.length === 0}
+            >
               <Icon name="Save" className="mr-2" size={16} />
               Сохранить
             </Button>
@@ -160,6 +176,12 @@ const Builder = () => {
           <h1 className="font-orbitron text-4xl font-bold mb-2 neon-glow">Drag & Drop Builder</h1>
           <p className="text-muted-foreground">Перетащите компоненты на холст для создания приложения</p>
         </div>
+
+        {showProjects && (
+          <div className="mb-8 animate-fade-in">
+            <ProjectsLibrary />
+          </div>
+        )}
 
         <div className="grid lg:grid-cols-[300px_1fr] gap-6">
           <div className="space-y-6">
@@ -302,6 +324,12 @@ const Builder = () => {
           </div>
         </div>
       </div>
+
+      <SaveProjectModal 
+        open={saveModalOpen} 
+        onOpenChange={setSaveModalOpen}
+        componentsCount={droppedComponents.length}
+      />
     </div>
   );
 };
