@@ -96,8 +96,8 @@ const Docs = () => {
             <Badge className="mb-4 bg-primary/20 text-primary border-primary/40">
               Документация и FAQ
             </Badge>
-            <h1 className="font-orbitron text-5xl font-bold mb-4 neon-glow">Как использовать NeoBuilder</h1>
-            <p className="text-muted-foreground text-lg mb-8">
+            <h1 className="font-orbitron text-3xl md:text-5xl font-bold mb-4 neon-glow">Как использовать NeoBuilder</h1>
+            <p className="text-muted-foreground text-base md:text-lg mb-8">
               Полное руководство по созданию приложений без кода
             </p>
             
@@ -114,7 +114,7 @@ const Docs = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-12">
             {docs.map((section, index) => (
               <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 hover-lift">
                 <CardHeader>

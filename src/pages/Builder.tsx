@@ -145,15 +145,16 @@ const Builder = () => {
             </div>
             <span className="font-orbitron text-2xl font-bold neon-glow text-primary">NeoBuilder</span>
           </div>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" className="border-primary/40" onClick={() => window.location.href = '/'}>
-              <Icon name="ArrowLeft" className="mr-2" size={16} />
-              Назад
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Button variant="outline" className="border-primary/40" onClick={() => window.location.href = '/'} size="sm">
+              <Icon name="ArrowLeft" className="sm:mr-2" size={16} />
+              <span className="hidden sm:inline">Назад</span>
             </Button>
             <Button 
               variant="outline" 
-              className="border-primary/40"
+              className="hidden md:flex border-primary/40"
               onClick={() => setShowProjects(!showProjects)}
+              size="sm"
             >
               <Icon name="FolderOpen" className="mr-2" size={16} />
               {showProjects ? "Скрыть" : "Мои проекты"}
@@ -162,9 +163,10 @@ const Builder = () => {
               className="bg-gradient-to-r from-neon-purple to-neon-pink animate-glow"
               onClick={() => setSaveModalOpen(true)}
               disabled={droppedComponents.length === 0}
+              size="sm"
             >
-              <Icon name="Save" className="mr-2" size={16} />
-              Сохранить
+              <Icon name="Save" className="sm:mr-2" size={16} />
+              <span className="hidden sm:inline">Сохранить</span>
             </Button>
           </div>
         </div>
@@ -185,9 +187,9 @@ const Builder = () => {
           </div>
         )}
 
-        <div className="grid lg:grid-cols-[300px_1fr] gap-6">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-4 md:gap-6">
           <div className="space-y-6">
-            <Card className="p-4 bg-card/50 backdrop-blur-sm border-primary/20 sticky top-24">
+            <Card className="p-3 md:p-4 bg-card/50 backdrop-blur-sm border-primary/20 lg:sticky lg:top-24">
               <Tabs defaultValue="components">
                 <TabsList className="w-full mb-4">
                   <TabsTrigger value="components" className="flex-1">

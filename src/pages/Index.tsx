@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import VideoModal from "@/components/VideoModal";
 import AuthModal from "@/components/AuthModal";
+import MobileMenu from "@/components/MobileMenu";
 import { useState } from "react";
 
 const Index = () => {
@@ -115,22 +116,34 @@ const Index = () => {
           <div className="flex items-center gap-4">
             <Button 
               variant="ghost"
+              className="hidden md:flex"
               onClick={() => window.location.href = '/profile'}
             >
               <Icon name="User" className="mr-2" size={16} />
               Профиль
             </Button>
             <Button 
-              className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 animate-glow"
+              className="hidden md:flex bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 animate-glow"
               onClick={() => setAuthOpen(true)}
             >
               Начать бесплатно
             </Button>
+            <MobileMenu 
+              items={[
+                { label: "Возможности", href: "#features", icon: "Sparkles" },
+                { label: "Шаблоны", href: "#templates", icon: "LayoutTemplate" },
+                { label: "Кейсы", href: "/showcase", icon: "Award" },
+                { label: "Конструктор", href: "/builder", icon: "Layers" },
+                { label: "Документация", href: "/docs", icon: "BookOpen" },
+                { label: "Тарифы", href: "#pricing", icon: "CreditCard" },
+              ]}
+              onAuthClick={() => setAuthOpen(true)}
+            />
           </div>
         </div>
       </nav>
 
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img 
             src="https://cdn.poehali.dev/projects/b4f77c05-1d18-4d76-8e72-89075a7152d4/files/6e3b7536-6e95-4602-bf34-1e6e93aa1a05.jpg" 
@@ -143,10 +156,10 @@ const Index = () => {
             <Badge className="mb-6 bg-primary/20 text-primary border-primary/40 text-sm px-4 py-2">
               🚀 Будущее разработки уже здесь
             </Badge>
-            <h1 className="font-orbitron text-6xl md:text-7xl font-bold mb-6 neon-glow bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent">
+            <h1 className="font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 neon-glow bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent">
               Создавайте Приложения Без Кода
             </h1>
-            <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
               Платформа с ИИ для разработки веб, iOS и Android приложений. 
               200 готовых шаблонов, облачная инфраструктура и публикация в сторы за минуты.
             </p>
@@ -189,7 +202,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-12 flex items-center justify-center gap-8 text-sm text-muted-foreground">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Icon name="Users" size={16} className="text-primary" />
                 <span>50K+ пользователей</span>
@@ -210,7 +223,7 @@ const Index = () => {
         <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-neon-pink/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
       </section>
 
-      <section id="features" className="py-24 relative">
+      <section id="features" className="py-12 md:py-24 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <Badge className="mb-4 bg-secondary/20 text-secondary border-secondary/40">
@@ -248,7 +261,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="templates" className="py-24 bg-card/20 relative">
+      <section id="templates" className="py-12 md:py-24 bg-card/20 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent/20 text-accent border-accent/40">
@@ -328,7 +341,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="pricing" className="py-24 relative">
+      <section id="pricing" className="py-12 md:py-24 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-primary/20 text-primary border-primary/40">
@@ -392,7 +405,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-24 bg-card/20 relative">
+      <section id="contact" className="py-12 md:py-24 bg-card/20 relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">

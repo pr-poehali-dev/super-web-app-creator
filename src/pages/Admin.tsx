@@ -57,14 +57,14 @@ const Admin = () => {
 
       <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="mb-8">
-          <h1 className="font-orbitron text-4xl font-bold mb-2 neon-glow">Панель Администратора</h1>
+          <h1 className="font-orbitron text-2xl md:text-4xl font-bold mb-2 neon-glow">Панель Администратора</h1>
           <p className="text-muted-foreground">Управление платформой NeoBuilder</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-8">
           {stats.map((stat, index) => (
             <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 hover-lift">
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-2 md:pb-3">
                 <div className="flex items-center justify-between">
                   <CardDescription>{stat.label}</CardDescription>
                   <div className={`w-10 h-10 rounded-lg bg-${stat.color}/20 flex items-center justify-center`}>
@@ -73,7 +73,7 @@ const Admin = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="font-orbitron text-3xl font-bold neon-glow">{stat.value}</div>
+                <div className="font-orbitron text-xl md:text-3xl font-bold neon-glow">{stat.value}</div>
               </CardContent>
             </Card>
           ))}

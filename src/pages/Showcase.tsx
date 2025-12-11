@@ -96,25 +96,25 @@ const Showcase = () => {
         </div>
       </nav>
 
-      <section className="py-20 relative">
+      <section className="py-12 md:py-20 relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <Badge className="mb-4 bg-secondary/20 text-secondary border-secondary/40">
               Истории успеха
             </Badge>
-            <h1 className="font-orbitron text-5xl md:text-6xl font-bold mb-6 neon-glow">
+            <h1 className="font-orbitron text-3xl md:text-5xl lg:text-6xl font-bold mb-6 neon-glow">
               Кейсы Реальных Проектов
             </h1>
-            <p className="text-muted-foreground text-xl max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-base md:text-xl max-w-3xl mx-auto">
               Узнайте, как компании создали успешные приложения с помощью NeoBuilder
             </p>
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-10 md:space-y-20">
             {showcaseApps.map((app, index) => (
               <div key={app.id} className="animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
                 <Card className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden hover-lift">
-                  <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                  <div className={`grid lg:grid-cols-2 gap-4 lg:gap-0 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                     <div className={`relative h-[400px] ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                       <img 
                         src={app.image} 

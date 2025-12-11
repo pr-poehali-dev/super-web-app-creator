@@ -47,11 +47,11 @@ const Profile = () => {
       <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="font-orbitron text-4xl font-bold mb-2 neon-glow">Профиль</h1>
+            <h1 className="font-orbitron text-2xl md:text-4xl font-bold mb-2 neon-glow">Профиль</h1>
             <p className="text-muted-foreground">Управление вашим аккаунтом и настройками</p>
           </div>
 
-          <div className="grid md:grid-cols-[250px_1fr] gap-6">
+          <div className="grid lg:grid-cols-[250px_1fr] gap-6">
             <Card className="bg-card/50 backdrop-blur-sm border-primary/20 h-fit">
               <CardContent className="p-6">
                 <div className="text-center mb-6">
